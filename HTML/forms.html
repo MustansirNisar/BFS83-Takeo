@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forms</title>
+  </head>
+  <body>
+    <form id="userForm">
+      <div>
+        <label for="user">Username:</label>
+        <input
+          id="user"
+          name="Username"
+          type="text"
+          maxlength="8"
+          minlength="2"
+          placeholder="Enter Username"
+        />
+      </div>
+      <br />
+      <label for="email">Email:</label>
+      <input id="email" name="Email" type="email" placeholder="Enter Email" />
+      <br /><br />
+      <!-- <input type="submit" value="Click">
+       <input type="reset" value="Unclick"> -->
+      <label for="num">Enter Age:</label>
+      <input id="num" type="number" min="18" max="35" name="" />
+      <br />
+      <label for="pass">Password:</label>
+      <input type="password" name="" id="pass" />
+      <br />
+      <input type="date" name="" id="" />
+      <br />
+      <input type="file" name="" id="" />
+      <br />
+      <input type="color" name="" id="" />
+      <br />
+      <label for="ph">Phone Number:</label>
+      <input id="ph" type="tel" />
+      <br />
+      <br />
+      <label for="ml">Male</label>
+      <input name="Gender" type="radio" value="Male" name="" id="ml" />
+
+      <label for="fl">Female</label>
+      <input name="Gender" type="radio" value="Female" name="" id="fl" />
+
+      <label for="ot">Other</label>
+      <input name="Gender" value="Other" type="radio" name="" id="ot" />
+      <br /><br />
+      <label for="">Enter your Skills:</label>
+
+      <input id="html" name="Skills" value="HTML" type="checkbox" />
+      <label for="html">HTML</label>
+
+      <input id="js" name="Skills" value="Js" type="checkbox" />
+      <label for="js">JavaScript</label>
+
+      <input id="pt" name="Skills" value="Python" type="checkbox" />
+      <label for="pt">Python</label>
+
+      <input id="da" name="Skills" value="DA" type="checkbox" />
+      <label for="da">Data Analytics</label>
+
+      <br /><br />
+      <button type="submit">Submit</button>
+      <button type="reset">Reset</button>
+    </form>
+
+    <input type="text" name="" id="" form="userForm" />
+  </body>
+</html>
