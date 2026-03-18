@@ -20,7 +20,7 @@
       </div>
       <br />
       <label for="email">Email:</label>
-      <input id="email" name="Email" type="email" placeholder="Enter Email" />
+      <input required id="email" name="Email" type="email" placeholder="Enter Email" />
       <br /><br />
       <!-- <input type="submit" value="Click">
        <input type="reset" value="Unclick"> -->
@@ -62,12 +62,56 @@
 
       <input id="da" name="Skills" value="DA" type="checkbox" />
       <label for="da">Data Analytics</label>
+<br><br><br>
+<fieldset>
+  <legend>Current Address</legend>
+  <label for="ctr">Country:</label>
+  <input type="text" name="" id="ctr">
+  <br>
+  <label for="">State:</label>
+  <input type="text" name="" id="">
+  <br>
+  <label for="">City:</label>
+  <input type="text">
+  <label for="">Zip code:</label>
+  <input type="text" name="" id="">
+</fieldset>
+      
+<br><br>
+      <label for="cntry">Select Your Country:</label>
+      <select size="4" multiple name="" id="cntry">
+        <!-- <option value="">Select an Option</option> -->
+        <option value="Nepal" selected >Nepal</option>
+        <option value="US">United States</option>
+        <option value="Aust" >Australia</option>
+        <option value="Iran">Iran</option>
+        <option value="Pak">Pakistan</option>
+        <option value="Ind">India</option>
+      </select>
+<br>
+<label for="">Enter your Hobby:</label>
+<input type="text" list="hobby">
+<datalist id="hobby">
+  <option value="Singing">
+  <option value="Drawing">
+  <option value="Calligraphy">
+  <option value="Gardening">
+  <option value="Painting">
+</datalist>
+<br><br><br>
+<label for="">Your Feedback:</label>
+<textarea rows="10" cols="40" id="" maxlength="50" disabled readonly ></textarea>
 
-      <br /><br />
+
+
+
+<br /><br /> <br>
       <button type="submit">Submit</button>
       <button type="reset">Reset</button>
+
+
     </form>
 
-    <input type="text" name="" id="" form="userForm" />
+    <!-- <input type="text" name="" id="" form="userForm" /> -->
   </body>
 </html>
