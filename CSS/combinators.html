@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combinators</title>
+    <style>
+        /* Descendant Combinator */
+        /* div #sect p{
+            color: blue;
+        } */
+        /* Child Combinator */
+        /* div #sect > p{
+            color: red;
+        } */
+        /* Adjacent sibling combinator */
+        /* h2 + p{
+             color: red;
+        } */
+        /* General Sibling Combinator */
+        /* h2 ~ p{
+            color:red;
+        } */
+    </style>
+</head>
+<body>
+    <h1>Welcome to CSS Combinators</h1>
+    <div>
+        <h1>Welcome to the first Section</h1>
+        <h2>How are you doing?</h2>
+        <p>This is the next sibling to h2</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum vitae, voluptatum modi maxime doloremque officia earum, sunt asperiores sequi aliquam doloribus nobis ipsa at dicta ab labore fugiat, amet voluptatem.</p>
+        <section id="sect">
+            <p>This is a paragraph tag inside section tag</p>
+            <h2>Inside the Seciton Tag</h2>
+            <p>This is another target</p>
+            <p>One more tag</p>
+            <article>
+                <p>This is inside the article tag which is inside the section tag</p>
+            </article>
+        </section>
+    </div>
+</body>
+</html>
