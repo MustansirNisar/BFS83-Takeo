@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Practice</title>
+    <style>
+    .container{
+        width:70%;
+        height: 500px;
+        background-color: aqua;
+        display: grid;
+        grid-template-areas: "header header header header"
+        "main main aside ."
+        "section section aside ."
+        "footer footer footer footer";
+    }
+    .items{
+        background-color: chocolate;
+        text-align: center;
+        border: 2px solid black;
+    }
+    #item1{
+        grid-area:header ;
+    }
+    #item2{
+        grid-area: main;
+    }
+    #item3{
+        grid-area: section;
+    }
+    #item4{
+        grid-area: aside;
+    }
+    #item5{
+        grid-area: footer;   
+    }
+    </style>
+    
+   
+</head>
+<body>
+    <div class="container">
+        <div class="items" id="item1">Header</div>
+        <div class="items" id="item2">Main</div>
+        <div class="items" id="item3">Section</div>
+        <div class="items" id="item4">Aside</div>
+        <div class="items" id="item5">Footer</div>
+    </div>
+</body>
+</html>
