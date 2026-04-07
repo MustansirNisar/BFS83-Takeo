@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Web Design</title>
+    <style>
+      /* Media Queries targetting exact width */
+      /* #box1{
+            width: 300px;
+            height: 300px;
+            background-color: yellow;
+            border: 2px solid green;
+        }
+        @media screen and (width:768px){
+            #box1{
+                width: 150px;
+                height: 150px;
+                background-color: aqua;
+                border: 2px dashed brown;
+            }
+        } */
+
+      /* min-width */
+      /* #box1 {
+        width: 150px;
+        height: 150px;
+        background-color: aqua;
+        border: 2px dashed brown;
+      }
+      @media screen and (min-width: 768px) {
+        #box1 {
+          width: 400px;
+          height: 400px;
+          background-color: yellow;
+          border: 2px solid green;
+        }
+      } */
+
+      /* max-width */
+      #box1 {
+        width: 400px;
+        height: 400px;
+        background-color: yellow;
+        border: 2px solid green;
+      }
+      #box2 {
+        width: 300px;
+        height: 300px;
+        background-color: tomato;
+        border: 10px solid green;
+      }
+      #box3 {
+        display: none;
+      }
+      @media screen and (max-width: 600px) {
+        #box1 {
+          width: 100px;
+          height: 100px;
+          background-color: blue;
+          border: 2px dashed brown;
+        }
+        #box3 {
+          display: inline-block;
+          width: 100px;
+          height: 100px;
+          border: 2px solid black;
+          background-color: turquoise;
+        }
+      }
+      @media screen and (min-width: 600px) and (max-width: 767px) {
+        #box1 {
+          width: 150px;
+          height: 150px;
+          background-color: crimson;
+          border: 2px dotted yellow;
+        }
+      }
+      @media screen and (min-width: 767px) and (max-width: 1000px) {
+        #box1 {
+          width: 400px;
+          height: 400px;
+          background-color: chartreuse;
+          border: 10px solid black;
+        }
+        #box2 {
+          display: none;
+        }
+      }
+
+      @media screen and (orientation: portrait) {
+        body {
+          background-color: aquamarine;
+        }
+      }
+      @media screen and (orientation: landscape) {
+        body {
+          background-color: yellowgreen;
+        }
+      }
+
+      @media print {
+        #box1 {
+          width: 100px;
+          height: 100px;
+          background-color: red;
+          border: 10px solid green;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box1">Hello</div>
+    <div id="box2">Bye</div>
+    <div id="box3">Hi</div>
+  </body>
+</html>
