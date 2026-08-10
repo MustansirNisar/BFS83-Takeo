@@ -1,0 +1,620 @@
+........props.....
+import Greet, {Contact} from "./Components/Greet";
+import Parent from "./Components/Parent";
+
+
+function App(){
+  // let user = <h1>Nitish</h1>;
+  let userName = "Sandeep"
+  return(
+   <>
+    <h1>Hello and Welcome to React</h1>
+    <p>This is a paragraph tag</p>
+    {/* {user} */}
+    <Parent name={userName} id = {1} course = {"Os"}/>
+   </>
+  )
+}
+
+export default App;
+
+
+....Passing an Array as props....
+import React from 'react'
+import Coder from './Components/Coder'
+
+function App() {
+  let coders = ["Lama", "Sandeep", "Sushant", "Diksha", "Nitish"]
+  return (
+    <div>
+      <h2>This is the App.jsx Component</h2>
+      {/* <Coder fNames = {coders}/> */}
+      <Coder coder1={coders[0]} coder2={coders[1]}/>
+
+    </div>
+  )
+}
+
+export default App
+
+...passing down Objects as props...
+import React from 'react'
+import Coder from './Components/Coder'
+
+function App() {
+  let coder1 = {
+    name: "Diksha",
+    id: 1,
+    age: 20
+  }
+    let coder2 = {
+    name: "Sandeep",
+    id: 2,
+    age: 25
+  }
+  let coder3 = {
+    name: "Lama",
+    id: 3,
+    age: 23
+  }
+  let coder4 = {
+    name: "Nitish",
+    id: 4,
+    age: 24
+  }
+  return (
+    <div>
+      <Coder info = {coder1}/>
+      <Coder info = {coder2}/>
+      <Coder info = {coder3}/>
+      <Coder info = {coder4}/>
+    </div>
+  )
+}
+
+export default App
+
+......children prop....
+import React from 'react'
+import User from './Components/User'
+import Info from './Components/Info'
+
+function App() {
+  return (
+    <div>
+    <Info color ={"orange"} >
+      <h2>Diksha</h2>
+      <h5>I am a software developer</h5>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi tenetur blanditiis soluta ratione inventore, quam impedit nesciunt neque ut ad?</p>
+    </Info>
+     <Info color = {"red"}>
+      <h2>Sandeep</h2>
+      <h5>I am a software developer</h5>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi tenetur blanditiis soluta ratione inventore, quam impedit nesciunt neque ut ad?</p>
+    </Info>
+     <Info>
+      <h2>Lama</h2>
+      <h5>I am a software developer</h5>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi tenetur blanditiis soluta ratione inventore, quam impedit nesciunt neque ut ad?</p>
+    </Info>
+
+    </div>
+  )
+}
+
+export default App
+....Click Event and Function Call....
+import React from 'react'
+
+function App() {
+  function greet(name){
+    alert("Hey, How are you doing? "+name)
+  }
+ 
+  return (
+    <div>
+      {/* <button onClick={greet}>Greetings</button> */}
+      {/* <button onClick={()=>greet("Lama")}>Greetings</button> */}
+      <button onClick={()=>alert("Clicked!")}>Greetings</button>
+
+
+    </div>
+  )
+}
+
+export default App
+
+......useState().....
+import React, { useState } from 'react'
+
+function App() {
+  // let phone = "Iphone"
+  // let changePhone = ()=>{
+  //   phone = "Nothing Phone"
+  //   console.log(phone)
+  // }
+  let[phone, setPhone] = useState("Iphone")
+  let changePhone = ()=>{
+    setPhone("Nothing Phone")
+  }
+  return (
+    <div>
+      {/* <button onClick={changePhone}>Change Phone</button>
+     <h3> Phone: {phone}</h3> */}
+     <button onClick={changePhone}>Change Phone</button>
+      <h3>Phone: {phone}</h3>
+    </div>
+  )
+}
+
+export default App
+
+....Conditional Renderring.......
+import React, { useState } from 'react'
+import Counter from './Components/Counter'
+import Sandeep from './Components/Sandeep'
+
+function App() {
+  let[show, setShow] = useState(true)
+  return (
+    <div>
+     <h1>Toggling</h1>
+    <button onClick={()=>setShow(!show)}>Toggle </button>
+
+     {/* {
+      show?<h1>Hello and Welcome to Conditional Rendering</h1>:null
+     } */}
+
+       {
+      show?<Sandeep/>:null
+     }
+    </div>
+  )
+}
+
+export default App
+
+....Multiple Conditional Rendering....
+import React, { useState } from 'react'
+
+function App() {
+  let[count, setCount] = useState(0)
+  return (
+    <div>
+      <button onClick={()=>setCount(count+1)}>Update</button>
+      <h3>Count: {count}</h3>
+      {
+        count==0?<h1>Sunday</h1>
+        :count==1?<h1>Monday</h1>
+        :count==2?<h1>Tuesday</h1>
+        :count==3?<h1>Wednesday</h1>
+        :count==4?<h1>Thursday</h1>
+        :count==5?<h1>Friday</h1>
+        :count==6?<h1>Saturday</h1>
+        :<h1>Some Other Day</h1>
+      }
+    </div>
+  )
+}
+
+export default App
+.......Controlled Components.........
+import React, { useState } from 'react'
+
+function App() {
+  let[value, setValue] = useState("")
+  return (
+    <div>
+      <h1>Input</h1>
+      <input type="text" value={value} placeholder='Enter UserName' onChange={(event)=>setValue(event.target.value)} />
+      <h4>Value: {value}</h4>
+      <button onClick={()=>setValue("")}>Clear</button>
+    </div>
+  )
+}
+
+export default App
+.......Rendering Lists........
+import React from 'react'
+import Skills from './Components/Skills'
+
+function App() {
+  // let skills = ["Python", "JavaScript", "Rust", "C", "C++"]
+  let coders = [
+    ["Name", "Id", "Email"],
+    {
+      name: "Sushant",
+      id: 1,
+      email: "s@test.com"
+    },
+    {
+      name: "Nitish",
+      id: 2,
+      email: "N@test.com"
+    },
+    {
+      name: "Diksha",
+      id: 3, 
+      email:"D@test.com"
+    },
+    {
+      name: "Sandeep",
+      id: 4,
+      email: "S@test.com"
+    }
+  ]
+  return (
+    <div>
+
+        <table border={1} style={{borderCollapse:"collapse"}}>
+          <caption>Coders</caption>
+          <thead>
+            <tr>
+              <th>{coders[0][0]}</th>
+              <th>{coders[0][1]}</th>
+              <th>{coders[0][2]}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              coders.slice(1).map((item)=>(
+                <tr key={item.id}>
+                  <td>{item.name}</td>
+                  <td>{item.id}</td>
+                  <td>{item.email}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     {/* <h2>Skills: {skills.toString()}</h2> */}
+     {/* <h4>Skills:</h4>
+      <ul>
+        {
+          skills.map((item,idx)=>(
+            <li>{item}</li>
+          ))
+        }
+      </ul> */}
+
+     {/* <ul>
+      <li>{skills[0]}</li>
+      <li>{skills[1]}</li>
+      <li>{skills[2]}</li>
+      <li>{skills[3]}</li>
+     </ul> */}
+    </div>
+  )
+}
+
+export default App
+............useEffect()........
+import React, { useEffect, useState } from 'react'
+import Effect from './Components/Effect'
+
+function App() {
+  let[count, setCount] = useState(0)
+  let[reverse, setReverse] = useState(200)
+  let[show, setShow] = useState(true)
+  // function greet(){
+  //   console.log("Hello, how are you doing?")
+  // }
+
+  // useEffect(()=>{
+  // greet();
+
+  // })
+  return (
+    <div>
+      <h1>Hello and Welcome to my Webpage</h1>
+      <button onClick={()=>setCount(count+1)}>Count:{count}</button>
+      <button onClick={()=>setReverse(reverse-1)}>Reverse:{reverse}</button>
+      <br /><br /><br />
+      <button onClick={()=>setShow(!show)}>Toggle</button>
+      {
+      show?<Effect count={count}/>:null
+      }
+    </div>
+  )
+}
+
+export default App
+............useRef()......
+import React from 'react'
+// import './App.css'
+import Next from './Components/Next'
+import styles from './App.module.css'
+import styled from 'styled-components'
+
+function App() {
+  let newStyle = {
+    color:"green", 
+    backgroundColor:"aqua",
+    border: "2px solid black"
+  }
+  let Heading = styled.h1`
+  color: violet;
+  border: 2px solid black;
+  width: 300px
+  `
+
+  let Bttn = styled.button`
+    color: red;
+    height: 100px;
+  `
+  return (
+    <div>
+      <Bttn>Click me!</Bttn>
+      <button>click me!</button>
+      <Heading>This is a styled Component</Heading>
+      <h1>this is a simple h1 tag</h1>
+      <h1 id='heading1' style={newStyle}>Welcome to my Webpage</h1>
+      <h2 className={styles.heading}>Welcome to the first Section</h2>
+      <h2>another heading</h2>
+      <p id='para'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque fugit fuga suscipit vero modi sed magnam enim veniam sint adipisci?</p>
+      <ul id='list' className={styles.list}>
+        <li>Mango</li>
+        <li>Orange</li>
+        <li>Cherry</li>
+      </ul>
+      <Next/>
+    </div>
+  )
+}
+
+export default App
+..................useRef().........
+import React, { useRef } from 'react'
+
+function App() {
+  let inputRef = useRef(null);
+  let handleRef = ()=>{
+    // console.log(inputRef)
+    inputRef.current.focus();
+    inputRef.current.style.color = "red";
+    inputRef.current.placeholder = "Write something here"
+  }
+  let toggleInput = ()=>{
+      if(inputRef.current.style.display != "none"){
+        inputRef.current.style.display = "none"
+      }
+      else{
+        inputRef.current.style.display = "inline"
+      }
+  }
+
+  function greet(){
+    console.log("Hello, how are you?")
+  }
+  greet();
+  return (
+    <div>
+      <button onClick={toggleInput}>Toggle</button>
+      <input ref={inputRef} type="text" placeholder='Enter your Name' />
+      <button onClick={handleRef}>Focus</button>
+    </div>
+  )
+}
+
+export default App;
+...........Context API.......
+import React, { useState } from 'react'
+import University from './Components/University'
+import { courseContext } from './Components/DataContext'
+function App() {
+  let[course, setCourse] = useState("")
+  return (
+    <div style={{backgroundColor:"aqua", border:"2px solid black", textAlign:"center", padding:"10px"}}>
+      <courseContext.Provider value={course}>
+        <select onChange={(event)=>setCourse(event.target.value)} value={course}>
+          <option value="">Select Your Course</option>
+          <option value="Software Engineering">Software Engineering</option>
+          <option value="Soft Computing">Soft Computing</option>
+          <option value="Machine Learning">Machine Learning</option>
+          <option value="Full Stack Development">Full Stack Development</option>
+        </select>
+        <button onClick={()=>setCourse("")}>Clear</button>
+      <h1>Cotainer Component</h1>
+      <University/>
+      </courseContext.Provider>
+      
+    </div>
+  )
+}
+
+export default App
+
+............Lazy Loading..........
+import React, { lazy, Suspense, useState } from 'react'
+// import Lazy from './Components/Lazy'
+let NewC = lazy(()=>import('./Components/Lazy'))
+function App() {
+  let[load, setLoad] = useState(false)
+  return (
+    <div>
+      <h1>This is the Parent Component</h1>
+      <button onClick={()=>setLoad(!load)}>Load Lazy</button>
+      <hr />
+      {
+        load?<Suspense fallback = {<h3>Loading......</h3>}><NewC/></Suspense>:null
+      }
+      {/* {
+         load?<Lazy/>:null
+        
+      } */}
+    </div>
+  )
+}
+
+export default App
+
+.....useReducer..........
+import React, { act, useReducer } from 'react'
+
+
+let inpData = {
+  name: '',
+  password:'',
+  email:'',
+  city:'',
+  country:''
+}
+let reducer = (state, action)=>{
+      // console.log("State:", state, "Action:", action)
+      return {...state, [action.type]: [action.val] }
+
+}
+function App() {
+  let[state, dispatch] = useReducer(reducer,inpData )
+  // console.log(state)
+  function greet(){
+    console.log("hello")
+  }
+  greet();
+  return (
+    <div>
+      <h1>Reducer Hook</h1>
+      <input type="text" placeholder='Enter Name' onChange={(event)=>dispatch({val:event.target.value, type: 'name'})}/>
+      <br /><br />
+      <input type="text" placeholder='Enter Password' onChange={(event)=>dispatch({val:event.target.value, type: 'password'})}/>
+      <br /><br />
+      <input type="text" placeholder='Enter email' onChange={(event)=>dispatch({val:event.target.value, type: 'email'})}/>
+      <br /><br />
+      <input type="text" placeholder='Enter City' onChange={(event)=>dispatch({val:event.target.value, type: 'city'})}/>
+      <br /><br />
+      <input type="text" placeholder='Enter Country' onChange={(event)=>dispatch({val:event.target.value, type: 'country'})}/>
+      <br /><br />
+      <hr />
+      <h3>Name:{state.name}</h3>
+      <h3>Password:{state.password}</h3>
+      <h3>Email:{state.email}</h3>
+      <h3>City:{state.city}</h3>
+      <h3>Country:{state.country}</h3>
+    </div>
+  )
+}
+
+export default App
+............React Router........
+import React from 'react'
+import {Routes, Route } from 'react-router-dom'
+import Home from './Components/Home'
+import About from './Components/About'
+import Blog from './Components/Blog'
+import Contact from './Components/Contact'
+import Navbar from './Components/Navbar'
+import Counter from './Components/Counter'
+import './Components/nav.css'
+function App() {
+  return (
+    <div>
+      <Navbar/>
+      <Counter/>
+      <Routes>
+        <Route path='/' element={<Home />}/>
+        <Route path='/about' element={<About/>}/>
+        <Route path='/blog' element={<Blog/>}/>
+        <Route path='/contact' element={<Contact/>}/>
+
+      </Routes>
+    </div>
+  )
+}
+
+export default App
+
+.........redux lagacy..........
+import React from 'react'
+import Ctr from './ReduxLegacy/Ctr'
+import { useDispatch, useSelector } from 'react-redux'
+import { bColor } from './ReduxLegacy/Action'
+
+function App() {
+  let bgColor = useSelector((state)=>state.color.backgroundColor)
+  let dispatch = useDispatch()
+  return (
+    <div style={{backgroundColor:bgColor, height:"100vh"}}>
+      <button onClick={()=>dispatch(bColor("orange"))}>Orange</button>
+      <button onClick={()=>dispatch(bColor("violet"))}>violet</button>
+      <button onClick={()=>dispatch(bColor("yellow"))}>Yellow</button>
+      <Ctr/>
+    </div>
+  )
+}
+
+export default App
+
+......redux toolkit.......
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { increment,decrement } from './ReduxToolkit/CounterSlice'
+import { setUser } from './ReduxToolkit/UserSlice'
+
+function App() {
+  let count = useSelector((state)=>state.counter.value)
+  let user = useSelector((state)=>state.user)
+  let dispatch = useDispatch()
+  return (
+    <div>
+      <h1>Count:{count}</h1>
+      <h1>Name: {user.name}</h1>
+      <h1>Age: {user.age}</h1>
+      <button onClick={()=>dispatch(increment())}>Increment</button>
+      <button onClick={()=>dispatch(decrement())}>Decrement</button>
+      <button onClick={()=>dispatch(setUser({name:"Diksha", age:22}))}>Update User</button>
+    </div>
+  )
+}
+
+export default App
+
+
+
+............useRef Example.......
+import React, { useRef } from 'react'
+import myVideo from '../../Untitled 8_1440p_2.mp4'
+function App() {
+  const videoRef = useRef(null)
+
+  let handlePlay = ()=>{
+    videoRef.current.play();
+  }
+  let handlePause = ()=>{
+    videoRef.current.pause();
+  }
+  let handleReset = ()=>{
+    videoRef.current.currentTime = 0;
+    videoRef.current.pause();
+  }
+  return (
+    <div>
+      <h2>Video Player</h2>
+      <video src={myVideo} 
+      width="400"
+      ref={videoRef}
+      controls
+      />
+      <br /><br />
+      <button onClick={handlePlay}>Start</button>
+      <button onClick={handlePause}>Pause</button>
+      <button onClick={handleReset}>Reset</button>
+    </div>
+  )
+}
+
+export default App
